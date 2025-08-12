@@ -1,0 +1,317 @@
+import { useState,useEffect } from "react";
+
+import {
+  Button,
+  Button2,
+  Code,
+  Container,
+  Container2,
+  Demo,
+  List,
+  Name,
+  SubTitle,
+  Summary,
+} from "./styles";
+import DefaultButton from "../button";
+import AutoImageRotator from "../imageAuto";
+import ArrowLeft from "../../assets/arrowLeft.gif";
+import ArrowRight from "../../assets/arrowRight.gif";
+import Not from "../../assets/cancel-unscreen.gif";
+
+const todosOsProjetos = [
+  {
+    titulo: "Projeto Mario",
+    descricao: "Este é um projeto de landing page inspirado no Mario Bros, desenvolvido em HTML, CSS e JavaScript. que permite aos usuários solicitar um orçamento para um serviço.",
+    imagens: ["/projetoMario1.JPG", "/projetoMario2.JPG", "/projetoMario3.JPG"],
+    linkCodigo: "https://github.com/Tiagliveira/Mario-bros",
+    linkDemo: "https://tiagliveira.github.io/Mario-bros/",
+  },
+  {
+    titulo: "Jokenpô Game",
+    descricao: "Este é um jogo de Jokenpô (Pedra, Papel e Tesoura) desenvolvido em HTML, CSS E JAVASCRIPT. O usuário pode jogar contra o computador, e o resultado é exibido na tela.",
+    imagens: ["/joKenPo1.JPG", "/joKenPo2.JPG", "/joKenPo3.JPG"],
+    linkCodigo: "https://github.com/Tiagliveira/Joken-Po",
+    linkDemo: "https://tiagliveira.github.io/Joken-Po/",
+  },
+  {
+    titulo: "Conversor de Moedas",
+    descricao: "Este projeto é um conversor de moedas, que permite a conversão entre diferentes moedas utilizando uma API externa.",
+    imagens: [
+      "/ConversorDeMoedas1.JPG",
+      "/ConversorDeMoedas2.JPG",
+      "/ConversorDeMoedas3.JPG",
+    ],
+    linkCodigo: "https://github.com/Tiagliveira/conversor-de-moedas",
+    linkDemo: "https://tiagliveira.github.io/conversor-de-moedas/",
+  },
+  {
+    titulo: "Portfólio Pessoal",
+    descricao: "Este é meu portfólio pessoal desenvolvido em React, onde apresento meus projetos e habilidades em desenvolvimento web.",
+    imagens: "/dashboard1.png",
+    linkCodigo: "https://github.com/Tiagliveira/Mario-bros",
+    linkDemo: "https://tiagliveira.github.io/Mario-bros/",
+  },
+];
+
+const ITENS_VISIVEIS = 3;
+
+function Projects() {
+  const [startIndex, setStartIndex] = useState(0);
+  const [showActions, setShowActions] = useState(null);
+  const [itemsVisiveis, setItemsVisiveis] = useState(3); // padrão desktop
+
+  // Detectar tamanho da tela
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setItemsVisiveis(1); // mobile
+      } else {
+        setItemsVisiveis(3); // desktop
+      }
+    };
+
+    handleResize(); // executa ao carregar
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const avancar = () => {
+    if (startIndex + itemsVisiveis < todosOsProjetos.length) {
+      setStartIndex((prev) => prev + 1);
+    }
+  };
+
+  const voltar = () => {
+    if (startIndex > 0) {
+      setStartIndex((prev) => prev - 1);
+    }
+  };
+
+  const visiveis = todosOsProjetos.slice(startIndex, startIndex + itemsVisiveis);
+
+  return (
+    <div style={{ position: "relative" }}>
+      <Button
+        onClick={voltar}
+        disabled={startIndex === 0}
+        style={{
+          cursor: startIndex === 0 ? "not-allowed" : "pointer",
+          fontSize: "16px",
+          backgroundColor: "transparent",
+        }}
+      >
+        <img
+          src={startIndex === 0 ? Not : ArrowLeft}
+          alt="Voltar"
+        />
+      </Button>
+
+      <SubTitle>Projetos</SubTitle>
+
+      <Container style={{ listStyle: "none", transition: "all 0.4s ease-in-out" }}>
+        {visiveis.map((proj, index) => (
+          <List key={index} style={{ transition: "all 0.50s ease-in-out" }}>
+            <AutoImageRotator images={proj.imagens} interval={3000} />
+            <Name>{proj.titulo}</Name>
+            <Summary>{proj.descricao}</Summary>
+            <DefaultButton
+              onClick={() =>
+                setShowActions((prev) => (prev === index ? null : index))
+              }
+            >
+              Opções
+            </DefaultButton>
+            {showActions === index && (
+              <Container2 onClick={() => setShowActions(null)}>
+                <Code
+                  as="a"
+                  href={proj.linkCodigo}
+                  target="-blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none", color: "#fff" }}
+                >
+                  Código
+                </Code>
+                <Demo
+                  as="a"
+                  href={proj.linkDemo}
+                  target="-blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none", color: "#fff" }}
+                >
+                  Deploy
+                </Demo>
+              </Container2>
+            )}
+          </List>
+        ))}
+      </Container>
+
+      <Button2
+        onClick={avancar}
+        disabled={startIndex + itemsVisiveis >= todosOsProjetos.length}
+        style={{
+          cursor:
+            startIndex + itemsVisiveis >= todosOsProjetos.length
+              ? "not-allowed"
+              : "pointer",
+          fontSize: "16px",
+          backgroundColor: "transparent",
+        }}
+      >
+        <img
+          src={
+            startIndex + itemsVisiveis >= todosOsProjetos.length ? Not : ArrowRight
+          }
+          alt="Avançar"
+        />
+      </Button2>
+    </div>
+  );
+}
+
+export default Projects;
+
+{/*{
+
+function Projects() {
+  const [startIndex, setStartIndex] = useState(0);
+  const [showActions, setShowActions] = useState(null);
+
+  const avancar = () => {
+    if (startIndex + ITENS_VISIVEIS < todosOsProjetos.length) {
+      setStartIndex((prev) => prev + 1);
+    }
+  };
+
+  const voltar = () => {
+    if (startIndex > 0) {
+      setStartIndex((prev) => prev - 1);
+    }
+  };
+
+  const visiveis = todosOsProjetos.slice(
+    startIndex,
+    startIndex + ITENS_VISIVEIS
+  );
+
+  return (
+    <div>
+      
+      <div style={{ margin: "0 auto" }}>
+        
+        <button
+          onClick={voltar}
+          disabled={startIndex === 0}
+          style={{
+            position: "relative",
+            top: "370px",
+            left: "13%",
+            zIndex: "2",
+            border: "none",
+            borderRadius: "50px",
+            cursor: startIndex === 0 ? "not-allowed" : "pointer",
+            fontSize: "16px",
+            backgroundColor: startIndex === 0 ? "transparent" : "transparent",
+          }}
+        >
+          <img
+            src={startIndex === 0 ? Not : ArrowLeft}
+            alt="Voltar"
+            style={{ width: "50px", height: "100px" }}
+          />
+        </button>
+        <SubTitle style={{ margin: "0 50% 20px 45%" }}> Projetos</SubTitle>
+        <Container
+          style={{
+
+            listStyle: "none",
+            transition: "all 0.4s ease-in-out",
+          }}
+        >
+          {visiveis.map((proj, index) => (
+            <List
+              key={index}
+              style={{
+                transition: "all 0.50s ease-in-out",
+              }}
+            >
+              <AutoImageRotator images={proj.imagens} interval={3000} />
+              <Name>{proj.titulo}</Name>
+              <Summary>{proj.descricao}</Summary>
+              <DefaultButton
+                onClick={() =>
+                  setShowActions((prev) => (!prev === index ? null : index))
+                }
+              >
+                Opções
+              </DefaultButton>
+
+              // Div com 2 botões — aparece somente neste item 
+              {showActions === index && (
+                <Container2 onClick={() => setShowActions((prev) => !prev)}>
+                  <Code
+                    as="a"
+                    href={proj.linkCodigo}
+                    target="-blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "none", color: "#fff" }}
+                  >
+                    Ver Código
+                  </Code>
+                  <Demo
+                    as="a"
+                    href={proj.linkDemo}
+                    target="-blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "none", color: "#fff" }}
+                  >
+                    Ver Demo
+                  </Demo>
+                </Container2>
+              )}
+            </List>
+          ))}
+        </Container>
+
+        <div
+          style={{
+            textAlign: "center",
+            marginTop: "24px",
+            display: "flex",
+            justifyContent: "center",
+            gap: "16px",
+          }}
+        ></div>
+        <button
+          onClick={avancar}
+          disabled={startIndex + ITENS_VISIVEIS >= todosOsProjetos.length}
+          style={{
+            position: "relative",
+            bottom: "325px",
+            right: "-81%",
+            zIndex: "2",
+            border: "none",
+            borderRadius: "50px",
+            cursor:
+              startIndex + ITENS_VISIVEIS >= todosOsProjetos.length
+                ? "not-allowed"
+                : "pointer",
+            fontSize: "16px",
+            backgroundColor: startIndex === 0 ? "transparent" : "transparent",
+          }}
+        >
+          <img
+            src={startIndex === 0 ? ArrowRight : Not}
+            alt="Avançar"
+            style={{ width: "50px", height: "100px" }}
+          />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default Projects;
+}
+*/}
