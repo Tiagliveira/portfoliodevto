@@ -4,6 +4,8 @@ import DictatingText from "../Message";
 import ToLow from "../../assets/lowArrow.gif";
 import { Box, ContainerButton, ContainerIMage, ContainerText, SubTitle } from "./styles";
 
+import Curriculo from "../../assets/Tiago_de_Oliveira_CV.pdf";
+
 function HomePage() {
   return (
     <Box style={{ height: "100vh" }}>
@@ -20,7 +22,7 @@ function HomePage() {
         <ContainerButton>
           <DefaultButton type="button" onClick={() => window.location.href="#projects"}>Projetos</DefaultButton>
           <DefaultButton type="button" onClick={() => window.location.href="#contact"}>Contatos</DefaultButton>
-          <DefaultButton type="button" onClick={() => window.open("/Tiago de Oliveira CV.pdf", "_blank")}>Currículo</DefaultButton>
+          <DefaultButton type="button" onClick={abrircurriculo}>Currículo</DefaultButton>
         </ContainerButton>
       </ContainerText>
 
@@ -50,3 +52,7 @@ function HomePage() {
 }
 
 export default HomePage;
+
+function abrircurriculo() {
+  window.open(Curriculo, '_blank', 'noopener,noreferrer');
+}

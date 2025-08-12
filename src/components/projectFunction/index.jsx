@@ -18,29 +18,37 @@ import ArrowLeft from "../../assets/arrowLeft.gif";
 import ArrowRight from "../../assets/arrowRight.gif";
 import Not from "../../assets/cancel-unscreen.gif";
 
+import ProjetoMario1 from "../../assets/projetoMario1.JPG"
+import ProjetoMario2 from "../../assets/projetoMario2.JPG"
+import ProjetoMario3 from "../../assets/projetoMario3.JPG"
+
+import JoKePo1 from "../../assets/joKenPo1.JPG"
+import JoKePo2 from "../../assets/joKenPo2.JPG"
+import JoKePo3 from "../../assets/joKenPo3.JPG"
+
+import ConversorDeMoedas1 from "../../assets/ConversorDeMoedas1.JPG"
+import ConversorDeMoedas2 from "../../assets/ConversorDeMoedas2.JPG"
+import ConversorDeMoedas3 from "../../assets/ConversorDeMoedas3.JPG"
+
 const todosOsProjetos = [
   {
     titulo: "Projeto Mario",
     descricao: "Este é um projeto de landing page inspirado no Mario Bros, desenvolvido em HTML, CSS e JavaScript. que permite aos usuários solicitar um orçamento para um serviço.",
-    imagens: ["/projetoMario1.JPG", "/projetoMario2.JPG", "/projetoMario3.JPG"],
+    imagens: [ProjetoMario1,ProjetoMario2,ProjetoMario3],
     linkCodigo: "https://github.com/Tiagliveira/Mario-bros",
     linkDemo: "https://tiagliveira.github.io/Mario-bros/",
   },
   {
     titulo: "Jokenpô Game",
     descricao: "Este é um jogo de Jokenpô (Pedra, Papel e Tesoura) desenvolvido em HTML, CSS E JAVASCRIPT. O usuário pode jogar contra o computador, e o resultado é exibido na tela.",
-    imagens: ["/joKenPo1.JPG", "/joKenPo2.JPG", "/joKenPo3.JPG"],
+    imagens: [JoKePo1,JoKePo2,JoKePo3],
     linkCodigo: "https://github.com/Tiagliveira/Joken-Po",
     linkDemo: "https://tiagliveira.github.io/Joken-Po/",
   },
   {
     titulo: "Conversor de Moedas",
     descricao: "Este projeto é um conversor de moedas, que permite a conversão entre diferentes moedas utilizando uma API externa.",
-    imagens: [
-      "/ConversorDeMoedas1.JPG",
-      "/ConversorDeMoedas2.JPG",
-      "/ConversorDeMoedas3.JPG",
-    ],
+    imagens: [ConversorDeMoedas1,ConversorDeMoedas2,ConversorDeMoedas3],
     linkCodigo: "https://github.com/Tiagliveira/conversor-de-moedas",
     linkDemo: "https://tiagliveira.github.io/conversor-de-moedas/",
   },
@@ -172,146 +180,3 @@ function Projects() {
 
 export default Projects;
 
-{/*{
-
-function Projects() {
-  const [startIndex, setStartIndex] = useState(0);
-  const [showActions, setShowActions] = useState(null);
-
-  const avancar = () => {
-    if (startIndex + ITENS_VISIVEIS < todosOsProjetos.length) {
-      setStartIndex((prev) => prev + 1);
-    }
-  };
-
-  const voltar = () => {
-    if (startIndex > 0) {
-      setStartIndex((prev) => prev - 1);
-    }
-  };
-
-  const visiveis = todosOsProjetos.slice(
-    startIndex,
-    startIndex + ITENS_VISIVEIS
-  );
-
-  return (
-    <div>
-      
-      <div style={{ margin: "0 auto" }}>
-        
-        <button
-          onClick={voltar}
-          disabled={startIndex === 0}
-          style={{
-            position: "relative",
-            top: "370px",
-            left: "13%",
-            zIndex: "2",
-            border: "none",
-            borderRadius: "50px",
-            cursor: startIndex === 0 ? "not-allowed" : "pointer",
-            fontSize: "16px",
-            backgroundColor: startIndex === 0 ? "transparent" : "transparent",
-          }}
-        >
-          <img
-            src={startIndex === 0 ? Not : ArrowLeft}
-            alt="Voltar"
-            style={{ width: "50px", height: "100px" }}
-          />
-        </button>
-        <SubTitle style={{ margin: "0 50% 20px 45%" }}> Projetos</SubTitle>
-        <Container
-          style={{
-
-            listStyle: "none",
-            transition: "all 0.4s ease-in-out",
-          }}
-        >
-          {visiveis.map((proj, index) => (
-            <List
-              key={index}
-              style={{
-                transition: "all 0.50s ease-in-out",
-              }}
-            >
-              <AutoImageRotator images={proj.imagens} interval={3000} />
-              <Name>{proj.titulo}</Name>
-              <Summary>{proj.descricao}</Summary>
-              <DefaultButton
-                onClick={() =>
-                  setShowActions((prev) => (!prev === index ? null : index))
-                }
-              >
-                Opções
-              </DefaultButton>
-
-              // Div com 2 botões — aparece somente neste item 
-              {showActions === index && (
-                <Container2 onClick={() => setShowActions((prev) => !prev)}>
-                  <Code
-                    as="a"
-                    href={proj.linkCodigo}
-                    target="-blank"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "none", color: "#fff" }}
-                  >
-                    Ver Código
-                  </Code>
-                  <Demo
-                    as="a"
-                    href={proj.linkDemo}
-                    target="-blank"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "none", color: "#fff" }}
-                  >
-                    Ver Demo
-                  </Demo>
-                </Container2>
-              )}
-            </List>
-          ))}
-        </Container>
-
-        <div
-          style={{
-            textAlign: "center",
-            marginTop: "24px",
-            display: "flex",
-            justifyContent: "center",
-            gap: "16px",
-          }}
-        ></div>
-        <button
-          onClick={avancar}
-          disabled={startIndex + ITENS_VISIVEIS >= todosOsProjetos.length}
-          style={{
-            position: "relative",
-            bottom: "325px",
-            right: "-81%",
-            zIndex: "2",
-            border: "none",
-            borderRadius: "50px",
-            cursor:
-              startIndex + ITENS_VISIVEIS >= todosOsProjetos.length
-                ? "not-allowed"
-                : "pointer",
-            fontSize: "16px",
-            backgroundColor: startIndex === 0 ? "transparent" : "transparent",
-          }}
-        >
-          <img
-            src={startIndex === 0 ? ArrowRight : Not}
-            alt="Avançar"
-            style={{ width: "50px", height: "100px" }}
-          />
-        </button>
-      </div>
-    </div>
-  );
-}
-
-export default Projects;
-}
-*/}

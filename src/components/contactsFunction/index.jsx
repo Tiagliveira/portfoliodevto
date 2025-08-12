@@ -21,6 +21,14 @@ import WhatsApp from "../../assets/whatsApp.png";
 import AvatarArtRotator from "../avatarArt";
 import DictatingText from "../Message";
 
+
+import AvatarBye from "../../assets/AvatarBye.PNG"
+import Avatar1 from "../../assets/avatarGif1.PNG"
+import Avatar2 from "../../assets/avatarGif2.PNG"
+import Avatar3 from "../../assets/avatarGif3.PNG"
+import Avatar4 from "../../assets/avatarGif4.PNG"
+
+
 export default function Contact() {
   return (
     <Container>
@@ -111,12 +119,7 @@ function Button() {
 }
 
 const imageGif = [
-  "/AvatarBye.PNG",
-  "/avatarGif1.PNG",
-  "/avatarGif2.PNG",
-  "/avatarGif3.PNG",
-  "/avatarGif4.PNG",
-];
+  AvatarBye,Avatar1,Avatar2,Avatar3,Avatar4];
 
 function AvatarRotator() {
   return (
