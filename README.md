@@ -1,6 +1,9 @@
 # 👨‍💻 Portfólio Profissional – Tiago Oliveira
 
-![Preview do site](src/assets/preview.PNG)
+<p align="center">
+  <img src="./assets/preview.png" alt="Preview do site" width="600"/>
+</p>
+
 
 Olá! Seja bem-vindo(a) ao meu portfólio. Este projeto foi criado com o objetivo de apresentar minha trajetória como Desenvolvedor Full Stack, destacar meus principais projetos e facilitar o contato para futuras oportunidades profissionais.
 
