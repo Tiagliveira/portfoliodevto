@@ -1,7 +1,7 @@
 # 👨‍💻 Portfólio Profissional – Tiago Oliveira
 
 <p align="center">
-  <img src="/assets/preview.PNG" alt="Preview do site" width="600"/>
+  <img src="src/assets/preview.PNG" alt="Preview do site" width="600"/>
 </p>
 
 
