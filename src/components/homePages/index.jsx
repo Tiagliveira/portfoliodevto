@@ -4,7 +4,7 @@ import DictatingText from "../Message";
 import ToLow from "../../assets/lowArrow.gif";
 import { Box, ContainerButton, ContainerIMage, ContainerText, SubTitle } from "./styles";
 
-import Curriculo from "../../assets/Tiago_de_Oliveira_CV.pdf";
+import Curriculo from "../../assets/TiagoOliveira_CV.pdf";
 
 function HomePage() {
   return (

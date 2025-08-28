@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Portf-lioDevTO/', // 🔹 Barra no final é essencial
+  base: '/portfoliodevto/', // 🔹 tem que ter barra no final
 })

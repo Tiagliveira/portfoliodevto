@@ -11,7 +11,6 @@ justify-content:flex-start;
 gap:30px;
 text-shadow:2px 2px 2px 2px rgba(0, 255, 194, 0.6);
 
-
 @media ${device.mobile} {
     justify-content: space-between;
     width:100%;
@@ -46,9 +45,10 @@ position: relative;
 
 &.active::after{
     content: "";
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
+    z-index: 10;
     height: 2px;
     background-color: rgba(0, 255, 194, 1);
     width: 100%;

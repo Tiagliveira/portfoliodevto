@@ -44,7 +44,7 @@ export const ContainerText = styled.div`
    }
 
  @media ${device.mobile} {
-  margin-top:10%;
+  margin:10% 0 0;
   height:40%;
   width:100%;
   gap:2%;

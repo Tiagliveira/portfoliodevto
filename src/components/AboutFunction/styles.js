@@ -32,7 +32,7 @@ export const Presentation = styled.p`
 
   @media ${device.mobile} {
     font-size: 20px;
-    max-width: 400px;
+    max-width: 90%;
     margin-bottom: 20px;
   }
 

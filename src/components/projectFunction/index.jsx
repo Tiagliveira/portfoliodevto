@@ -30,7 +30,18 @@ import ConversorDeMoedas1 from "../../assets/ConversorDeMoedas1.JPG"
 import ConversorDeMoedas2 from "../../assets/ConversorDeMoedas2.JPG"
 import ConversorDeMoedas3 from "../../assets/ConversorDeMoedas3.JPG"
 
+import Portifolio1 from "../../assets/portifolio1.JPG"
+import Portifolio2 from "../../assets/portifolio2.JPG"      
+import Portifolio3 from "../../assets/portifolio3.JPG"
+
 const todosOsProjetos = [
+    {
+    titulo: "Portfólio Pessoal",
+    descricao: "Este é meu portfólio pessoal desenvolvido em React, onde apresento meus projetos e habilidades em desenvolvimento web.",
+    imagens: [Portifolio1,Portifolio2,Portifolio3],
+    linkCodigo: "https://github.com/Tiagliveira/portfoliodevto",
+    linkDemo: "https://tiagliveira.github.io/portfoliodevto/",
+  },
   {
     titulo: "Projeto Mario",
     descricao: "Este é um projeto de landing page inspirado no Mario Bros, desenvolvido em HTML, CSS e JavaScript. que permite aos usuários solicitar um orçamento para um serviço.",
@@ -52,13 +63,7 @@ const todosOsProjetos = [
     linkCodigo: "https://github.com/Tiagliveira/conversor-de-moedas",
     linkDemo: "https://tiagliveira.github.io/conversor-de-moedas/",
   },
-  {
-    titulo: "Portfólio Pessoal",
-    descricao: "Este é meu portfólio pessoal desenvolvido em React, onde apresento meus projetos e habilidades em desenvolvimento web.",
-    imagens: "/dashboard1.png",
-    linkCodigo: "https://github.com/Tiagliveira/Mario-bros",
-    linkDemo: "https://tiagliveira.github.io/Mario-bros/",
-  },
+
 ];
 
 const ITENS_VISIVEIS = 3;
