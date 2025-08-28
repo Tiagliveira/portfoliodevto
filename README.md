@@ -1,4 +1,4 @@
-# 👨‍💻 Portfólio Profissional – Tiago Oliveira
+# 👨‍💻 Portfólio Pessoal – Tiago Oliveira
 
 <p align="center">
   <img src="src/assets/preview.PNG" alt="Preview do site" width="400"/>
@@ -17,6 +17,9 @@ Olá! Seja bem-vindo(a) ao meu portfólio. Este projeto foi criado com o objetiv
 Sou Tiago Oliveira, desenvolvedor com experiência em criação de aplicações web modernas, responsivas e funcionais. Tenho paixão por tecnologia, aprendizado contínuo e por transformar ideias em soluções digitais.
 
 Minha formação e experiência me permitem atuar tanto no front-end (interface e experiência do usuário) quanto no back-end (lógica e estrutura dos dados).
+
+o nome **Dev To** representa minhas iniciais **Desenvolvedor Tiago Oliveira**.
+Não possuir vinculo com nenhuma plataforma
 
 ---
 
