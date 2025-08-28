@@ -18,7 +18,7 @@ Sou Tiago Oliveira, desenvolvedor com experiência em criação de aplicações 
 
 Minha formação e experiência me permitem atuar tanto no front-end (interface e experiência do usuário) quanto no back-end (lógica e estrutura dos dados).
 
-o nome **Dev To** representa minhas iniciais **Desenvolvedor Tiago Oliveira**.
+o nome **Dev To**  representa minhas iniciais  **Desenvolvedor Tiago Oliveira**.
 Não possuir vinculo com nenhuma plataforma
 
 ---
