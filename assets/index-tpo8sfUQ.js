@@ -1311,7 +1311,7 @@ background:rgba(0, 255, 194, 0.5);
   
  @media ${Q.mobile} {
     margin-top:20% ;
-     height:10%;
+     height:20%;
      justify-content:center;
      align-items:center;
      gap:0;
